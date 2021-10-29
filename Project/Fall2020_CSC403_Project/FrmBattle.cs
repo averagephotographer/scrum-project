@@ -88,5 +88,16 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
-  }
+
+        private void FrmBattle_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Escape_Click(object sender, EventArgs e)
+        {
+            instance = null;
+            Close();
+        }
+    }
 }
