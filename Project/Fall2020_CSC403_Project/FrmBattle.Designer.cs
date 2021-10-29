@@ -33,6 +33,7 @@
             this.picEnemy = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
+            this.Escape_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
@@ -41,10 +42,10 @@
             // btnAttack
             // 
             this.btnAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAttack.Location = new System.Drawing.Point(169, 519);
-            this.btnAttack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAttack.Location = new System.Drawing.Point(163, 473);
+            this.btnAttack.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAttack.Name = "btnAttack";
-            this.btnAttack.Size = new System.Drawing.Size(171, 53);
+            this.btnAttack.Size = new System.Drawing.Size(172, 53);
             this.btnAttack.TabIndex = 2;
             this.btnAttack.Text = "Attack";
             this.btnAttack.UseVisualStyleBackColor = true;
@@ -55,20 +56,20 @@
             this.lblPlayerHealthFull.BackColor = System.Drawing.Color.Blue;
             this.lblPlayerHealthFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerHealthFull.ForeColor = System.Drawing.Color.White;
-            this.lblPlayerHealthFull.Location = new System.Drawing.Point(95, 74);
+            this.lblPlayerHealthFull.Location = new System.Drawing.Point(95, 72);
             this.lblPlayerHealthFull.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlayerHealthFull.Name = "lblPlayerHealthFull";
-            this.lblPlayerHealthFull.Size = new System.Drawing.Size(301, 25);
+            this.lblPlayerHealthFull.Size = new System.Drawing.Size(339, 31);
             this.lblPlayerHealthFull.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(93, 73);
+            this.label1.Location = new System.Drawing.Point(93, 72);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(305, 28);
+            this.label1.Size = new System.Drawing.Size(344, 35);
             this.label1.TabIndex = 4;
             // 
             // label2
@@ -78,7 +79,7 @@
             this.label2.Location = new System.Drawing.Point(687, 73);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(305, 28);
+            this.label2.Size = new System.Drawing.Size(344, 35);
             this.label2.TabIndex = 5;
             // 
             // lblEnemyHealthFull
@@ -89,7 +90,7 @@
             this.lblEnemyHealthFull.Location = new System.Drawing.Point(688, 74);
             this.lblEnemyHealthFull.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEnemyHealthFull.Name = "lblEnemyHealthFull";
-            this.lblEnemyHealthFull.Size = new System.Drawing.Size(301, 25);
+            this.lblEnemyHealthFull.Size = new System.Drawing.Size(339, 31);
             this.lblEnemyHealthFull.TabIndex = 6;
             // 
             // picBossBattle
@@ -97,9 +98,9 @@
             this.picBossBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battle_screen;
             this.picBossBattle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picBossBattle.Location = new System.Drawing.Point(1040, 693);
-            this.picBossBattle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picBossBattle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.picBossBattle.Name = "picBossBattle";
-            this.picBossBattle.Size = new System.Drawing.Size(40, 34);
+            this.picBossBattle.Size = new System.Drawing.Size(42, 36);
             this.picBossBattle.TabIndex = 7;
             this.picBossBattle.TabStop = false;
             this.picBossBattle.Visible = false;
@@ -111,9 +112,9 @@
             this.picEnemy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemy.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picEnemy.Location = new System.Drawing.Point(687, 121);
-            this.picEnemy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picEnemy.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.picEnemy.Name = "picEnemy";
-            this.picEnemy.Size = new System.Drawing.Size(304, 328);
+            this.picEnemy.Size = new System.Drawing.Size(304, 327);
             this.picEnemy.TabIndex = 1;
             this.picEnemy.TabStop = false;
             // 
@@ -124,9 +125,9 @@
             this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picPlayer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picPlayer.Location = new System.Drawing.Point(93, 121);
-            this.picPlayer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picPlayer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.picPlayer.Name = "picPlayer";
-            this.picPlayer.Size = new System.Drawing.Size(304, 328);
+            this.picPlayer.Size = new System.Drawing.Size(304, 327);
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
@@ -135,13 +136,26 @@
             this.tmrFinalBattle.Interval = 5600;
             this.tmrFinalBattle.Tick += new System.EventHandler(this.tmrFinalBattle_Tick);
             // 
+            // Escape_btn
+            // 
+            this.Escape_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Escape_btn.Location = new System.Drawing.Point(163, 558);
+            this.Escape_btn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Escape_btn.Name = "Escape_btn";
+            this.Escape_btn.Size = new System.Drawing.Size(172, 53);
+            this.Escape_btn.TabIndex = 2;
+            this.Escape_btn.Text = "Escape";
+            this.Escape_btn.UseVisualStyleBackColor = true;
+            this.Escape_btn.Click += new System.EventHandler(this.Escape_Click);
+            // 
             // FrmBattle
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1096, 742);
+            this.ClientSize = new System.Drawing.Size(1233, 928);
+            this.Controls.Add(this.Escape_btn);
             this.Controls.Add(this.picBossBattle);
             this.Controls.Add(this.lblEnemyHealthFull);
             this.Controls.Add(this.label2);
@@ -151,10 +165,11 @@
             this.Controls.Add(this.picEnemy);
             this.Controls.Add(this.picPlayer);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmBattle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Fight!";
+            this.Load += new System.EventHandler(this.FrmBattle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
@@ -173,5 +188,6 @@
     private System.Windows.Forms.Label lblEnemyHealthFull;
     private System.Windows.Forms.PictureBox picBossBattle;
     private System.Windows.Forms.Timer tmrFinalBattle;
-  }
+    private System.Windows.Forms.Button Escape_btn;
+    }
 }
