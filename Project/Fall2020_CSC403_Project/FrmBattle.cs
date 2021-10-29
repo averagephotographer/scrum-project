@@ -73,7 +73,7 @@ namespace Fall2020_CSC403_Project {
       // changed the amount of dmg players takes for quick bug fix. used to be -2 // also changed how much player dmges so that boss dies faster, usually -4
         player.OnAttack(-4);
         if (enemy.Health > 0) {
-            enemy.OnAttack(-20);
+            enemy.OnAttack(-2);
         }
 
         UpdateHealthBars();
@@ -82,8 +82,6 @@ namespace Fall2020_CSC403_Project {
              if (enemy.Health <= 0) {
                   instance = null;
                   Close();
-                  frmLevel = new FrmLevel();
-                  frmLevel.Hide();
                   winScreen = new WinScreen();
                   winScreen.Show();
              }
