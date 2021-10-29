@@ -44,6 +44,9 @@ namespace Fall2020_CSC403_Project {
 
       Game.player = player;
       timeBegin = DateTime.Now;
+
+      // Show health
+      PlayerHealthBar();
     }
 
     private Vector2 CreatePosition(PictureBox pic) {
@@ -87,6 +90,11 @@ namespace Fall2020_CSC403_Project {
 
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+
+      // Update health
+      PlayerHealthBar();
+
+      
     }
 
     private bool HitAWall(Character c) {
@@ -142,5 +150,20 @@ namespace Fall2020_CSC403_Project {
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
-  }
+    
+    // Function for update the player's health bar on the main map
+    public void PlayerHealthBar()
+    {
+        float playerHealthPer = player.Health / (float)player.MaxHealth;
+        
+        const int MAX_HEALTHBAR_WIDTH = 226;
+        lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
+
+        lblPlayerHealthFull.Text = player.Health.ToString();
+    }
+
+    
+
+        
+    }
 }
