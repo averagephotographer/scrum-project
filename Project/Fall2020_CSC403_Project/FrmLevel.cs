@@ -28,9 +28,10 @@ namespace Fall2020_CSC403_Project
             const int NUM_WALLS = 13;
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-            player.InventoryAdd("Heart ");
-            player.InventoryAdd("Sword ");
-            player.InventoryRemove(0);
+            player.InventoryAdd("HeartContainer");
+            player.InventoryAdd("Bow");
+            player.InventoryRemove(1);
+
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
