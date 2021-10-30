@@ -12,8 +12,10 @@ namespace Fall2020_CSC403_Project.code {
     public Vector2 LastPosition { get; private set; }
     public Vector2 Position { get; private set; }
     public Collider Collider { get; private set; }
+    private List<string> Inventory = new List<string>();
 
-    public Character(Vector2 initPos, Collider collider) {
+
+        public Character(Vector2 initPos, Collider collider) {
       Position = initPos;
       Collider = collider;
     }
@@ -43,6 +45,25 @@ namespace Fall2020_CSC403_Project.code {
 
     public void ResetMoveSpeed() {
       MoveSpeed = new Vector2(0, 0);
+    }
+    public void InventoryAdd(string item)
+    {
+        Console.WriteLine("Adding: ");
+        Inventory.Add(item);
+        Inventory.ForEach(Console.Write);
+        Console.WriteLine();
+        Console.WriteLine();
+    }
+    // eventually made items a class?
+    public string InventoryRemove(int index)
+    {
+        Console.WriteLine("Removing: ");
+        string item = Inventory[index];
+        Inventory.RemoveAt(index);
+        Inventory.ForEach(Console.Write);
+        Console.WriteLine();
+        Console.WriteLine();
+        return item;
     }
   }
 }
