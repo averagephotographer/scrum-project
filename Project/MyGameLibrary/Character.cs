@@ -14,7 +14,7 @@ namespace Fall2020_CSC403_Project.code
         public Vector2 LastPosition { get; private set; }
         public Vector2 Position { get; private set; }
         public Collider Collider { get; private set; }
-        private List<string> Inventory = new List<string>();
+        private List<Item> Inventory = new List<Item>();
 
 
         public Character(Vector2 initPos, Collider collider)
@@ -56,7 +56,7 @@ namespace Fall2020_CSC403_Project.code
         {
             MoveSpeed = new Vector2(0, 0);
         }
-        public void InventoryAdd(string item)
+        public void InventoryAdd(Item item)
         {
             Console.WriteLine("Adding: ");
             Inventory.Add(item);
@@ -65,10 +65,10 @@ namespace Fall2020_CSC403_Project.code
             Console.WriteLine();
         }
         // eventually made items a class?
-        public string InventoryRemove(int index)
+        public Item InventoryRemove(int index)
         {
             Console.WriteLine("Removing: ");
-            string item = Inventory[index];
+            Item item = Inventory[index];
             Inventory.RemoveAt(index);
             Inventory.ForEach(Console.Write);
             Console.WriteLine();

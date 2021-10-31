@@ -12,6 +12,7 @@ namespace Fall2020_CSC403_Project
         private Enemy enemyPoisonPacket;
         private Enemy bossKoolaid;
         private Enemy enemyCheeto;
+        private Item health;
         private Character[] walls;
 
         private DateTime timeBegin;
@@ -28,17 +29,16 @@ namespace Fall2020_CSC403_Project
             const int NUM_WALLS = 13;
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-            player.InventoryAdd("HeartContainer");
-            player.InventoryAdd("Bow");
-            player.InventoryRemove(1);
 
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+            health = new Item("Health", CreatePosition(picHeartContainer), CreateCollider(picHeartContainer, PADDING));
 
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+            health.Img = picHeartContainer.BackgroundImage;
 
             bossKoolaid.Color = Color.Red;
             enemyPoisonPacket.Color = Color.Green;
@@ -89,6 +89,12 @@ namespace Fall2020_CSC403_Project
                 player.MoveBack();
             }
 
+            if (HitAnItem(player, health))
+            {
+                player.InventoryAdd(health);
+                Console.WriteLine(health.Name);
+            }
+
             // check collision with enemies
             if (HitAChar(player, enemyPoisonPacket))
             {
@@ -122,6 +128,11 @@ namespace Fall2020_CSC403_Project
         }
 
         private bool HitAChar(Character you, Character other)
+        {
+            return you.Collider.Intersects(other.Collider);
+        }
+
+        private bool HitAnItem(Character you, Item other)
         {
             return you.Collider.Intersects(other.Collider);
         }
