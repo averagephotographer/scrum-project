@@ -28,6 +28,8 @@
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
+            this.picOffscreen = new System.Windows.Forms.PictureBox();
+            this.picHeartContainer = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
             this.picWall8 = new System.Windows.Forms.PictureBox();
@@ -45,7 +47,8 @@
             this.picWall3 = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
-            this.picHeartContainer = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picOffscreen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHeartContainer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).BeginInit();
@@ -63,7 +66,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHeartContainer)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -90,6 +92,28 @@
             this.tmrPlayerMove.Enabled = true;
             this.tmrPlayerMove.Interval = 10;
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
+            // 
+            // picOffscreen
+            // 
+            this.picOffscreen.BackColor = System.Drawing.Color.Transparent;
+            this.picOffscreen.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.off_screen;
+            this.picOffscreen.Image = global::Fall2020_CSC403_Project.Properties.Resources.off_screen;
+            this.picOffscreen.Location = new System.Drawing.Point(548, 11);
+            this.picOffscreen.Name = "picOffscreen";
+            this.picOffscreen.Size = new System.Drawing.Size(10, 10);
+            this.picOffscreen.TabIndex = 19;
+            this.picOffscreen.TabStop = false;
+            // 
+            // picHeartContainer
+            // 
+            this.picHeartContainer.BackColor = System.Drawing.Color.Transparent;
+            this.picHeartContainer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.heart;
+            this.picHeartContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picHeartContainer.Location = new System.Drawing.Point(355, 656);
+            this.picHeartContainer.Name = "picHeartContainer";
+            this.picHeartContainer.Size = new System.Drawing.Size(70, 70);
+            this.picHeartContainer.TabIndex = 18;
+            this.picHeartContainer.TabStop = false;
             // 
             // picWall11
             // 
@@ -295,17 +319,6 @@
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
-            // picHeartContainer
-            // 
-            this.picHeartContainer.BackColor = System.Drawing.Color.Transparent;
-            this.picHeartContainer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.heart;
-            this.picHeartContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picHeartContainer.Location = new System.Drawing.Point(355, 656);
-            this.picHeartContainer.Name = "picHeartContainer";
-            this.picHeartContainer.Size = new System.Drawing.Size(70, 70);
-            this.picHeartContainer.TabIndex = 18;
-            this.picHeartContainer.TabStop = false;
-            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -313,6 +326,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1568, 894);
+            this.Controls.Add(this.picOffscreen);
             this.Controls.Add(this.picHeartContainer);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
@@ -340,6 +354,8 @@
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.picOffscreen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHeartContainer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).EndInit();
@@ -357,7 +373,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHeartContainer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,6 +401,7 @@
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
         private System.Windows.Forms.PictureBox picHeartContainer;
+        private System.Windows.Forms.PictureBox picOffscreen;
     }
 }
 

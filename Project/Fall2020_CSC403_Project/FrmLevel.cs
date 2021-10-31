@@ -13,6 +13,7 @@ namespace Fall2020_CSC403_Project
         private Enemy bossKoolaid;
         private Enemy enemyCheeto;
         private Item health;
+        private Item offScreen;
         private Character[] walls;
 
         private DateTime timeBegin;
@@ -34,6 +35,7 @@ namespace Fall2020_CSC403_Project
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
             health = new Item("Health", CreatePosition(picHeartContainer), CreateCollider(picHeartContainer, PADDING));
+            offScreen = new Item("off_screen", CreatePosition(picOffscreen), CreateCollider(picOffscreen, 1));
 
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -99,10 +101,8 @@ namespace Fall2020_CSC403_Project
                 // removes the image
                 picHeartContainer.Hide();
 
-                // could create an off screen pic so I can move the collider to that
-                // removes the collider 
-                // health.Collider = new Collider()
-                
+                // sets the item to an already made iteam
+                health = offScreen;  
             }
 
             // check collision with enemies

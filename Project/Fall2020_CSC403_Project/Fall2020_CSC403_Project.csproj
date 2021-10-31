@@ -113,7 +113,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyGameLibrary\MyGameLibrary.csproj">
@@ -123,6 +122,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="data\raw images\heart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\off_screen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
