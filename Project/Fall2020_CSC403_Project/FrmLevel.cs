@@ -89,10 +89,20 @@ namespace Fall2020_CSC403_Project
                 player.MoveBack();
             }
 
+            // check collision with item
             if (HitAnItem(player, health))
             {
                 player.InventoryAdd(health);
                 Console.WriteLine(health.Name);
+                Console.WriteLine(player.InventorySize());
+
+                // removes the image
+                picHeartContainer.Hide();
+
+                // could create an off screen pic so I can move the collider to that
+                // removes the collider 
+                // health.Collider = new Collider()
+                
             }
 
             // check collision with enemies
@@ -134,6 +144,7 @@ namespace Fall2020_CSC403_Project
 
         private bool HitAnItem(Character you, Item other)
         {
+
             return you.Collider.Intersects(other.Collider);
         }
 

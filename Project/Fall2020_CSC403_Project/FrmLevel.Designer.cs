@@ -300,7 +300,7 @@
             this.picHeartContainer.BackColor = System.Drawing.Color.Transparent;
             this.picHeartContainer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.heart;
             this.picHeartContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picHeartContainer.Location = new System.Drawing.Point(574, 434);
+            this.picHeartContainer.Location = new System.Drawing.Point(355, 656);
             this.picHeartContainer.Name = "picHeartContainer";
             this.picHeartContainer.Size = new System.Drawing.Size(70, 70);
             this.picHeartContainer.TabIndex = 18;
@@ -333,7 +333,7 @@
             this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.picPlayer);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmLevel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Explore";

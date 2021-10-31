@@ -58,22 +58,18 @@ namespace Fall2020_CSC403_Project.code
         }
         public void InventoryAdd(Item item)
         {
-            Console.WriteLine("Adding: ");
             Inventory.Add(item);
-            Inventory.ForEach(Console.Write);
-            Console.WriteLine();
-            Console.WriteLine();
         }
-        // eventually made items a class?
         public Item InventoryRemove(int index)
         {
-            Console.WriteLine("Removing: ");
             Item item = Inventory[index];
+            Console.WriteLine(item.Name);
             Inventory.RemoveAt(index);
-            Inventory.ForEach(Console.Write);
-            Console.WriteLine();
-            Console.WriteLine();
             return item;
+        }
+        public int InventorySize()
+        {
+            return Inventory.Count;
         }
     }
 }
