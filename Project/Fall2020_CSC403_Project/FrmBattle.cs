@@ -13,7 +13,6 @@ namespace Fall2020_CSC403_Project {
     private LoseScreen loseScreen;
     private WinScreen winScreen;
     private FrmLevel frmLevel;
-
     bool bossFightStarted = false;
 
     private FrmBattle() {
@@ -97,7 +96,7 @@ namespace Fall2020_CSC403_Project {
             Close();
             loseScreen = new LoseScreen();
             loseScreen.Show();
-        }
+            }
     }
 
     private void EnemyDamage(int amount) {
