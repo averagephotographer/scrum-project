@@ -114,6 +114,9 @@ namespace Fall2020_CSC403_Project
 
             }
 
+            // superclass item
+            // todo: this["health" + x]
+            // subclass heart
             if (HitAnItem(player, health2))
             {
                 player.InventoryAdd(health2);
@@ -223,6 +226,11 @@ namespace Fall2020_CSC403_Project
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picHeartContainer2_Click(object sender, EventArgs e)
         {
 
         }

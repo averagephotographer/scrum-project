@@ -87,7 +87,7 @@
             this.lblInGameTime.Location = new System.Drawing.Point(16, 11);
             this.lblInGameTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInGameTime.Name = "lblInGameTime";
-            this.lblInGameTime.Size = new System.Drawing.Size(46, 18);
+            this.lblInGameTime.Size = new System.Drawing.Size(60, 24);
             this.lblInGameTime.TabIndex = 2;
             this.lblInGameTime.Text = "label1";
             this.lblInGameTime.Click += new System.EventHandler(this.lblInGameTime_Click);
@@ -368,11 +368,12 @@
             this.picHeartContainer2.BackColor = System.Drawing.Color.Transparent;
             this.picHeartContainer2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.heart;
             this.picHeartContainer2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picHeartContainer2.Location = new System.Drawing.Point(752, 303);
+            this.picHeartContainer2.Location = new System.Drawing.Point(735, 265);
             this.picHeartContainer2.Name = "picHeartContainer2";
             this.picHeartContainer2.Size = new System.Drawing.Size(70, 70);
             this.picHeartContainer2.TabIndex = 25;
             this.picHeartContainer2.TabStop = false;
+            this.picHeartContainer2.Click += new System.EventHandler(this.picHeartContainer2_Click);
             // 
             // picHeartIndex1
             // 
