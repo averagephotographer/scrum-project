@@ -12,6 +12,8 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyCheeto;
     private Character[] walls;
 
+    private Enemy offScreen; // whenever an enemy dies, set that enemy to this instance (a hidden pictureBox)
+    
     private DateTime timeBegin;
     private FrmBattle frmBattle;
 
@@ -27,7 +29,8 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
-
+      offScreen = new Enemy(CreatePosition(picOffScreen), CreateCollider(picOffScreen, 0));
+      
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
@@ -94,7 +97,22 @@ namespace Fall2020_CSC403_Project {
       // Update health
       PlayerHealthBar();
 
-      
+      // Remove dead enemies' image
+      if (IsDead(enemyPoisonPacket))
+      {
+        picEnemyPoisonPacket.Hide();
+        enemyPoisonPacket = offScreen;
+      }
+      else if (IsDead(enemyCheeto))
+      {
+        picEnemyCheeto.Hide();
+        enemyCheeto = offScreen;
+            }
+      else if (IsDead(bossKoolaid))
+      {
+        picBossKoolAid.Hide();
+        bossKoolaid = offScreen;
+      }
     }
 
     private bool HitAWall(Character c) {
@@ -162,7 +180,16 @@ namespace Fall2020_CSC403_Project {
         lblPlayerHealthFull.Text = player.Health.ToString();
     }
 
-    
+    // check if enemy is dead
+    public bool IsDead(Enemy enemy)
+    {
+        bool isDead = false;
+        if (enemy.Health <= 0)
+        {
+            isDead = true;
+        }
+        return isDead;
+    }
 
         
     }

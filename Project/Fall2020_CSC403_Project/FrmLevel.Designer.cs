@@ -15,7 +15,6 @@
       }
       base.Dispose(disposing);
     }
-
     #region Windows Form Designer generated code
 
     /// <summary>
@@ -48,6 +47,7 @@
             this.HPlabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblPlayerHealthFull = new System.Windows.Forms.Label();
+            this.picOffScreen = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
@@ -65,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picOffScreen)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -97,7 +98,7 @@
             this.picEnemyCheeto.BackColor = System.Drawing.Color.Transparent;
             this.picEnemyCheeto.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
             this.picEnemyCheeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picEnemyCheeto.Location = new System.Drawing.Point(2063, 1027);
+            this.picEnemyCheeto.Location = new System.Drawing.Point(2268, 1260);
             this.picEnemyCheeto.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.picEnemyCheeto.Name = "picEnemyCheeto";
             this.picEnemyCheeto.Size = new System.Drawing.Size(171, 255);
@@ -109,7 +110,7 @@
             this.picEnemyPoisonPacket.BackColor = System.Drawing.Color.Transparent;
             this.picEnemyPoisonPacket.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket;
             this.picEnemyPoisonPacket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picEnemyPoisonPacket.Location = new System.Drawing.Point(782, 682);
+            this.picEnemyPoisonPacket.Location = new System.Drawing.Point(396, 367);
             this.picEnemyPoisonPacket.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.picEnemyPoisonPacket.Name = "picEnemyPoisonPacket";
             this.picEnemyPoisonPacket.Size = new System.Drawing.Size(168, 229);
@@ -133,7 +134,7 @@
             this.picBossKoolAid.BackColor = System.Drawing.Color.Transparent;
             this.picBossKoolAid.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBossKoolAid.BackgroundImage")));
             this.picBossKoolAid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBossKoolAid.Location = new System.Drawing.Point(2433, 470);
+            this.picBossKoolAid.Location = new System.Drawing.Point(2577, 185);
             this.picBossKoolAid.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.picBossKoolAid.Name = "picBossKoolAid";
             this.picBossKoolAid.Size = new System.Drawing.Size(515, 463);
@@ -324,18 +325,27 @@
             this.lblPlayerHealthFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerHealthFull.ForeColor = System.Drawing.Color.White;
             this.lblPlayerHealthFull.Location = new System.Drawing.Point(701, 42);
-            this.lblPlayerHealthFull.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblPlayerHealthFull.Name = "lblPlayerHealthFull";
             this.lblPlayerHealthFull.Size = new System.Drawing.Size(603, 48);
-            this.lblPlayerHealthFull.TabIndex = 19;
+            this.lblPlayerHealthFull.TabIndex = 4;
+            // 
+            // picOffScreen
+            // 
+            this.picOffScreen.BackColor = System.Drawing.Color.Gray;
+            this.picOffScreen.Location = new System.Drawing.Point(709, 367);
+            this.picOffScreen.Name = "picOffScreen";
+            this.picOffScreen.Size = new System.Drawing.Size(46, 37);
+            this.picOffScreen.TabIndex = 20;
+            this.picOffScreen.TabStop = false;
             // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(3136, 1731);
+            this.ClientSize = new System.Drawing.Size(3132, 2108);
             this.Controls.Add(this.lblPlayerHealthFull);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.HPlabel);
@@ -357,6 +367,7 @@
             this.Controls.Add(this.picWall3);
             this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.picPlayer);
+            this.Controls.Add(this.picOffScreen);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "FrmLevel";
@@ -382,6 +393,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picOffScreen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -409,9 +421,10 @@
     private System.Windows.Forms.PictureBox picWall1;
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
-        private System.Windows.Forms.Label HPlabel;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblPlayerHealthFull;
+    private System.Windows.Forms.Label HPlabel;
+    private System.Windows.Forms.Label label1;
+    private System.Windows.Forms.Label lblPlayerHealthFull;
+    private System.Windows.Forms.PictureBox picOffScreen;
     }
 }
 
