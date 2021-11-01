@@ -13,6 +13,7 @@ namespace Fall2020_CSC403_Project
         private Enemy bossKoolaid;
         private Enemy enemyCheeto;
         private Item health;
+        private Item health2;
         private Item offScreen;
         private Character[] walls;
 
@@ -31,17 +32,21 @@ namespace Fall2020_CSC403_Project
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
 
+            picHeartIndex0.Hide();
+            picHeartIndex1.Hide();
+
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
             health = new Item("Health", CreatePosition(picHeartContainer), CreateCollider(picHeartContainer, PADDING));
+            health2 = new Item("Health", CreatePosition(picHeartContainer2), CreateCollider(picHeartContainer2, PADDING));
             offScreen = new Item("off_screen", CreatePosition(picOffscreen), CreateCollider(picOffscreen, 1));
 
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
             health.Img = picHeartContainer.BackgroundImage;
-
+            
             bossKoolaid.Color = Color.Red;
             enemyPoisonPacket.Color = Color.Green;
             enemyCheeto.Color = Color.FromArgb(255, 245, 161);
@@ -95,14 +100,34 @@ namespace Fall2020_CSC403_Project
             if (HitAnItem(player, health))
             {
                 player.InventoryAdd(health);
-                Console.WriteLine(health.Name);
-                Console.WriteLine(player.InventorySize());
 
                 // removes the image
                 picHeartContainer.Hide();
 
                 // sets the item to an already made iteam
-                health = offScreen;  
+                health = offScreen;
+
+                // show the item in inventory
+                // this is just a quick fix
+                // TODO: base this off of the character array
+                picHeartIndex0.Show();
+
+            }
+
+            if (HitAnItem(player, health2))
+            {
+                player.InventoryAdd(health2);
+                
+                // removes the image
+                picHeartContainer2.Hide();
+
+                // sets the item to an already made iteam
+                health2 = offScreen;
+
+                // show the item in inventory
+                // this is just a quick fix
+                // TODO: base this off of the character array
+                picHeartIndex1.Show();
             }
 
             // check collision with enemies
@@ -188,6 +213,16 @@ namespace Fall2020_CSC403_Project
         }
 
         private void lblInGameTime_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

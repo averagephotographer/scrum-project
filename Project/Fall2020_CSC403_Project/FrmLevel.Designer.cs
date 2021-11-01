@@ -28,13 +28,11 @@
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
-            this.picOffscreen = new System.Windows.Forms.PictureBox();
             this.picHeartContainer = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
             this.picWall8 = new System.Windows.Forms.PictureBox();
             this.picWall7 = new System.Windows.Forms.PictureBox();
-            this.picWall1 = new System.Windows.Forms.PictureBox();
             this.picWall0 = new System.Windows.Forms.PictureBox();
             this.picWall10 = new System.Windows.Forms.PictureBox();
             this.picWall9 = new System.Windows.Forms.PictureBox();
@@ -47,13 +45,18 @@
             this.picWall3 = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.picOffscreen)).BeginInit();
+            this.picWall1 = new System.Windows.Forms.PictureBox();
+            this.picOffscreen = new System.Windows.Forms.PictureBox();
+            this.picInventory1 = new System.Windows.Forms.PictureBox();
+            this.picHeartIndex0 = new System.Windows.Forms.PictureBox();
+            this.picInventory2 = new System.Windows.Forms.PictureBox();
+            this.picHeartContainer2 = new System.Windows.Forms.PictureBox();
+            this.picHeartIndex1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picHeartContainer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall9)).BeginInit();
@@ -66,6 +69,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picOffscreen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picInventory1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHeartIndex0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picInventory2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHeartContainer2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHeartIndex1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -77,7 +87,7 @@
             this.lblInGameTime.Location = new System.Drawing.Point(16, 11);
             this.lblInGameTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInGameTime.Name = "lblInGameTime";
-            this.lblInGameTime.Size = new System.Drawing.Size(60, 24);
+            this.lblInGameTime.Size = new System.Drawing.Size(46, 18);
             this.lblInGameTime.TabIndex = 2;
             this.lblInGameTime.Text = "label1";
             this.lblInGameTime.Click += new System.EventHandler(this.lblInGameTime_Click);
@@ -92,17 +102,6 @@
             this.tmrPlayerMove.Enabled = true;
             this.tmrPlayerMove.Interval = 10;
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
-            // 
-            // picOffscreen
-            // 
-            this.picOffscreen.BackColor = System.Drawing.Color.Transparent;
-            this.picOffscreen.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.off_screen;
-            this.picOffscreen.Image = global::Fall2020_CSC403_Project.Properties.Resources.off_screen;
-            this.picOffscreen.Location = new System.Drawing.Point(548, 11);
-            this.picOffscreen.Name = "picOffscreen";
-            this.picOffscreen.Size = new System.Drawing.Size(10, 10);
-            this.picOffscreen.TabIndex = 19;
-            this.picOffscreen.TabStop = false;
             // 
             // picHeartContainer
             // 
@@ -162,18 +161,6 @@
             this.picWall7.Size = new System.Drawing.Size(507, 82);
             this.picWall7.TabIndex = 14;
             this.picWall7.TabStop = false;
-            // 
-            // picWall1
-            // 
-            this.picWall1.BackColor = System.Drawing.Color.Transparent;
-            this.picWall1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picWall1.Location = new System.Drawing.Point(111, 1);
-            this.picWall1.Margin = new System.Windows.Forms.Padding(4);
-            this.picWall1.Name = "picWall1";
-            this.picWall1.Size = new System.Drawing.Size(625, 82);
-            this.picWall1.TabIndex = 13;
-            this.picWall1.TabStop = false;
             // 
             // picWall0
             // 
@@ -319,6 +306,85 @@
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
+            // picWall1
+            // 
+            this.picWall1.BackColor = System.Drawing.Color.Transparent;
+            this.picWall1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
+            this.picWall1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall1.Location = new System.Drawing.Point(111, 1);
+            this.picWall1.Margin = new System.Windows.Forms.Padding(4);
+            this.picWall1.Name = "picWall1";
+            this.picWall1.Size = new System.Drawing.Size(625, 82);
+            this.picWall1.TabIndex = 13;
+            this.picWall1.TabStop = false;
+            // 
+            // picOffscreen
+            // 
+            this.picOffscreen.BackColor = System.Drawing.Color.Transparent;
+            this.picOffscreen.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.off_screen;
+            this.picOffscreen.Image = global::Fall2020_CSC403_Project.Properties.Resources.off_screen;
+            this.picOffscreen.Location = new System.Drawing.Point(548, 11);
+            this.picOffscreen.Name = "picOffscreen";
+            this.picOffscreen.Size = new System.Drawing.Size(10, 10);
+            this.picOffscreen.TabIndex = 19;
+            this.picOffscreen.TabStop = false;
+            // 
+            // picInventory1
+            // 
+            this.picInventory1.BackColor = System.Drawing.Color.Transparent;
+            this.picInventory1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.inventory;
+            this.picInventory1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picInventory1.Location = new System.Drawing.Point(772, 727);
+            this.picInventory1.Name = "picInventory1";
+            this.picInventory1.Size = new System.Drawing.Size(70, 70);
+            this.picInventory1.TabIndex = 22;
+            this.picInventory1.TabStop = false;
+            this.picInventory1.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // picHeartIndex0
+            // 
+            this.picHeartIndex0.BackColor = System.Drawing.Color.Transparent;
+            this.picHeartIndex0.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.heart;
+            this.picHeartIndex0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picHeartIndex0.Location = new System.Drawing.Point(782, 737);
+            this.picHeartIndex0.Name = "picHeartIndex0";
+            this.picHeartIndex0.Size = new System.Drawing.Size(50, 50);
+            this.picHeartIndex0.TabIndex = 23;
+            this.picHeartIndex0.TabStop = false;
+            // 
+            // picInventory2
+            // 
+            this.picInventory2.BackColor = System.Drawing.Color.Transparent;
+            this.picInventory2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.inventory;
+            this.picInventory2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picInventory2.Location = new System.Drawing.Point(848, 727);
+            this.picInventory2.Name = "picInventory2";
+            this.picInventory2.Size = new System.Drawing.Size(70, 70);
+            this.picInventory2.TabIndex = 24;
+            this.picInventory2.TabStop = false;
+            // 
+            // picHeartContainer2
+            // 
+            this.picHeartContainer2.BackColor = System.Drawing.Color.Transparent;
+            this.picHeartContainer2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.heart;
+            this.picHeartContainer2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picHeartContainer2.Location = new System.Drawing.Point(752, 303);
+            this.picHeartContainer2.Name = "picHeartContainer2";
+            this.picHeartContainer2.Size = new System.Drawing.Size(70, 70);
+            this.picHeartContainer2.TabIndex = 25;
+            this.picHeartContainer2.TabStop = false;
+            // 
+            // picHeartIndex1
+            // 
+            this.picHeartIndex1.BackColor = System.Drawing.Color.Transparent;
+            this.picHeartIndex1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.heart;
+            this.picHeartIndex1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picHeartIndex1.Location = new System.Drawing.Point(858, 737);
+            this.picHeartIndex1.Name = "picHeartIndex1";
+            this.picHeartIndex1.Size = new System.Drawing.Size(50, 50);
+            this.picHeartIndex1.TabIndex = 26;
+            this.picHeartIndex1.TabStop = false;
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -326,14 +392,17 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1568, 894);
-            this.Controls.Add(this.picOffscreen);
+            this.Controls.Add(this.picHeartIndex1);
+            this.Controls.Add(this.picHeartContainer2);
+            this.Controls.Add(this.picInventory2);
+            this.Controls.Add(this.picHeartIndex0);
+            this.Controls.Add(this.picInventory1);
             this.Controls.Add(this.picHeartContainer);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picWall8);
             this.Controls.Add(this.picWall7);
             this.Controls.Add(this.lblInGameTime);
-            this.Controls.Add(this.picWall1);
             this.Controls.Add(this.picWall0);
             this.Controls.Add(this.picWall10);
             this.Controls.Add(this.picWall9);
@@ -346,6 +415,8 @@
             this.Controls.Add(this.picWall3);
             this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.picPlayer);
+            this.Controls.Add(this.picWall1);
+            this.Controls.Add(this.picOffscreen);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmLevel";
@@ -354,13 +425,11 @@
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.picOffscreen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHeartContainer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall9)).EndInit();
@@ -373,6 +442,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picOffscreen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picInventory1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHeartIndex0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picInventory2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHeartContainer2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHeartIndex1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -402,6 +478,11 @@
     private System.Windows.Forms.PictureBox picWall11;
         private System.Windows.Forms.PictureBox picHeartContainer;
         private System.Windows.Forms.PictureBox picOffscreen;
+        private System.Windows.Forms.PictureBox picInventory1;
+        private System.Windows.Forms.PictureBox picHeartIndex0;
+        private System.Windows.Forms.PictureBox picInventory2;
+        private System.Windows.Forms.PictureBox picHeartContainer2;
+        private System.Windows.Forms.PictureBox picHeartIndex1;
     }
 }
 
