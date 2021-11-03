@@ -206,7 +206,7 @@
             this.picWall9.BackColor = System.Drawing.Color.Transparent;
             this.picWall9.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
             this.picWall9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picWall9.Location = new System.Drawing.Point(709, 367);
+            this.picWall9.Location = new System.Drawing.Point(662, 339);
             this.picWall9.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.picWall9.Name = "picWall9";
             this.picWall9.Size = new System.Drawing.Size(525, 281);
@@ -332,7 +332,7 @@
             // picOffScreen
             // 
             this.picOffScreen.BackColor = System.Drawing.Color.Gray;
-            this.picOffScreen.Location = new System.Drawing.Point(709, 367);
+            this.picOffScreen.Location = new System.Drawing.Point(1860, 2);
             this.picOffScreen.Name = "picOffScreen";
             this.picOffScreen.Size = new System.Drawing.Size(46, 37);
             this.picOffScreen.TabIndex = 20;
