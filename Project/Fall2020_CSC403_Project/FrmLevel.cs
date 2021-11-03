@@ -13,6 +13,7 @@ namespace Fall2020_CSC403_Project {
     private Character[] walls;
 
     private Enemy offScreen; // whenever an enemy dies, set that enemy to this instance (a hidden pictureBox)
+    private Player offScreenPlayer;
     
     private DateTime timeBegin;
     private FrmBattle frmBattle;
@@ -29,8 +30,10 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
-      offScreen = new Enemy(CreatePosition(picOffScreen), CreateCollider(picOffScreen, 0));
       
+      offScreen = new Enemy(CreatePosition(picOffScreen), CreateCollider(picOffScreen, 0));
+      offScreenPlayer = new Player(CreatePosition(picOffScreenPlayer), CreateCollider(picOffScreenPlayer, 0));
+
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
@@ -94,10 +97,14 @@ namespace Fall2020_CSC403_Project {
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
 
-      // Update health
-      PlayerHealthBar();
+      // Remove dead player's image
+      if (IsDead(player)){
+         picPlayer.Hide();
+         player = offScreenPlayer;
+         player.Die();
+      }
 
-      // Remove dead enemies' image
+      // Remove the dead enemies' images
       if (IsDead(enemyPoisonPacket))
       {
         picEnemyPoisonPacket.Hide();
@@ -113,6 +120,9 @@ namespace Fall2020_CSC403_Project {
         picBossKoolAid.Hide();
         bossKoolaid = offScreen;
       }
+
+      // Update health
+      PlayerHealthBar();
     }
 
     private bool HitAWall(Character c) {
@@ -181,10 +191,10 @@ namespace Fall2020_CSC403_Project {
     }
 
     // check if enemy is dead
-    public bool IsDead(Enemy enemy)
+    public bool IsDead(BattleCharacter character)
     {
         bool isDead = false;
-        if (enemy.Health <= 0)
+        if (character.Health <= 0)
         {
             isDead = true;
         }

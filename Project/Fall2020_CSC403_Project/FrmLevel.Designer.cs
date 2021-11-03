@@ -48,6 +48,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblPlayerHealthFull = new System.Windows.Forms.Label();
             this.picOffScreen = new System.Windows.Forms.PictureBox();
+            this.picOffScreenPlayer = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
@@ -66,6 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picOffScreen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picOffScreenPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -338,6 +340,15 @@
             this.picOffScreen.TabIndex = 20;
             this.picOffScreen.TabStop = false;
             // 
+            // picOffScreenPlayer
+            // 
+            this.picOffScreenPlayer.BackColor = System.Drawing.Color.Red;
+            this.picOffScreenPlayer.Location = new System.Drawing.Point(2488, 2);
+            this.picOffScreenPlayer.Name = "picOffScreenPlayer";
+            this.picOffScreenPlayer.Size = new System.Drawing.Size(34, 29);
+            this.picOffScreenPlayer.TabIndex = 21;
+            this.picOffScreenPlayer.TabStop = false;
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -368,6 +379,7 @@
             this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.picOffScreen);
+            this.Controls.Add(this.picOffScreenPlayer);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "FrmLevel";
@@ -394,6 +406,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picOffScreen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picOffScreenPlayer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -425,6 +438,7 @@
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.Label lblPlayerHealthFull;
     private System.Windows.Forms.PictureBox picOffScreen;
+    private System.Windows.Forms.PictureBox picOffScreenPlayer;
     }
 }
 
