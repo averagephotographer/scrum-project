@@ -32,5 +32,11 @@ namespace Fall2020_CSC403_Project.code
         {
             Health += amount;
         }
+        
+        public void Die()
+        {
+            Health = 0;
+        }
     }
-}
+
+  }

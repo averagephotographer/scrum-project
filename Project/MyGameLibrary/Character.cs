@@ -4,24 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fall2020_CSC403_Project.code
-{
-    public class Character
-    {
+namespace Fall2020_CSC403_Project.code {
+    public class Character {
         private const int GO_INC = 3;
-
+        
         public Vector2 MoveSpeed { get; private set; }
         public Vector2 LastPosition { get; private set; }
         public Vector2 Position { get; private set; }
         public Collider Collider { get; private set; }
         public List<Item> Inventory = new List<Item>();
 
-
-        public Character(Vector2 initPos, Collider collider)
-        {
+    public Character(Vector2 initPos, Collider collider) {
             Position = initPos;
             Collider = collider;
         }
+
+
 
         public void Move()
         {
