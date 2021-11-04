@@ -19,8 +19,6 @@ namespace Fall2020_CSC403_Project.code {
             Collider = collider;
         }
 
-
-
         public void Move()
         {
             LastPosition = Position;
