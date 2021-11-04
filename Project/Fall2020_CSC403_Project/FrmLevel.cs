@@ -32,9 +32,6 @@ namespace Fall2020_CSC403_Project
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
 
-            picHeartIndex0.Hide();
-            picHeartIndex1.Hide();
-
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
@@ -110,11 +107,16 @@ namespace Fall2020_CSC403_Project
                 // show the item in inventory
                 // this is just a quick fix
                 // TODO: base this off of the character array
-                picHeartIndex0.Show();
 
+                
+                picHeartIndex0.Show(); // this image starts off hidden
+
+                // stackoverflow.com/a/20060498/16369768
+                picInventory0.Controls.Add(picHeartIndex0); // adds picture to picturebox
+                picHeartIndex0.Location = new Point(15, 15); // places the new picture in the frame
             }
 
-            // superclass item
+            // idea: superclass item
             // todo: this["health" + x]
             // subclass heart
             if (HitAnItem(player, health2))
@@ -131,6 +133,8 @@ namespace Fall2020_CSC403_Project
                 // this is just a quick fix
                 // TODO: base this off of the character array
                 picHeartIndex1.Show();
+                picInventory1.Controls.Add(picHeartIndex1);
+                picHeartIndex1.Location = new Point(15, 15);
             }
 
             // check collision with enemies
@@ -231,6 +235,16 @@ namespace Fall2020_CSC403_Project
         }
 
         private void picHeartContainer2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picInventory2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picHeartIndex1_Click(object sender, EventArgs e)
         {
 
         }
