@@ -10,6 +10,9 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
+    private Enemy Doritto; //new enemy called doritto
+    private Enemy Knife; // new enemy called knife
+    private Enemy GrapeKoolAid; // new enemy called GrapeKoolAid
     private Character[] walls;
 
     private Enemy offScreen; // whenever an enemy dies, set that enemy to this instance (a hidden pictureBox)
@@ -17,6 +20,9 @@ namespace Fall2020_CSC403_Project {
     
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+
+
+    System.Random random = new System.Random(); // calls the random class
 
     public FrmLevel() {
       InitializeComponent();
@@ -27,20 +33,34 @@ namespace Fall2020_CSC403_Project {
       const int NUM_WALLS = 13;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+
+
+      RandomEnemies();
+
+
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
       
       offScreen = new Enemy(CreatePosition(picOffScreen), CreateCollider(picOffScreen, 0));
       offScreenPlayer = new Player(CreatePosition(picOffScreenPlayer), CreateCollider(picOffScreenPlayer, 0));
+      Doritto = new Enemy(CreatePosition(picEnemyDorittoMan), CreateCollider(picEnemyDorittoMan, PADDING));
+      Knife = new Enemy(CreatePosition(picEnemyKnife), CreateCollider(picEnemyKnife, PADDING));
+      GrapeKoolAid = new Enemy(CreatePosition(picEnemyGrapeKoolAid), CreateCollider(picEnemyGrapeKoolAid, PADDING));
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+      Doritto.Img = picEnemyDorittoMan.BackgroundImage;
+      Knife.Img = picEnemyKnife.BackgroundImage;
+      GrapeKoolAid.Img = picEnemyGrapeKoolAid.BackgroundImage;
 
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+      Doritto.Color = Color.AliceBlue;
+      Knife.Color = Color.Brown;
+      GrapeKoolAid.Color = Color.Purple;
 
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
@@ -89,6 +109,21 @@ namespace Fall2020_CSC403_Project {
       }
       else if (HitAChar(player, enemyCheeto)) {
         Fight(enemyCheeto);
+      }
+
+      else if(HitAChar(player, Doritto))
+      {
+        Fight(Doritto);
+      }
+
+      else if(HitAChar(player, Knife))
+      {
+        Fight(Knife);
+      }
+
+      else if(HitAChar(player, GrapeKoolAid))
+      {
+        Fight(GrapeKoolAid);
       }
       if (HitAChar(player, bossKoolaid)) {
         Fight(bossKoolaid);
@@ -202,5 +237,55 @@ namespace Fall2020_CSC403_Project {
     }
 
         
+
+    private int [] Generate_RandomNumbers()
+    {
+            int max = 5;
+            int number1 = random.Next(max);
+            int number2 = random.Next(max);
+            int number3 = random.Next(max);
+            int number4 = random.Next(max);
+
+            while((number1 == number2) || (number1 == number3) || (number1 == number4))
+            {
+                number1 = random.Next(max);
+            }
+            while((number2 == number3) || (number2 == number4))
+            {
+                number2 = random.Next(max);
+            }
+            while(number3 == number4)
+            {
+                number3 = random.Next(max);
+            }
+            int[] RandomNumbers = { number1, number2, number3, number4 };
+            return RandomNumbers;
+    }
+        
+    private void RandomEnemies()
+
+    {
+            int[] RandomPosition = Generate_RandomNumbers();
+            picEnemyPoisonPacket.Visible = false;
+            picEnemyCheeto.Visible = false;
+            picEnemyDorittoMan.Visible = false;
+            picEnemyKnife.Visible = false;
+            picEnemyGrapeKoolAid.Visible = false;
+
+            foreach (int i in RandomPosition)
+            {
+                if (i == 0)
+                    picEnemyPoisonPacket.Visible = true;
+                else if (i == 1)
+                    picEnemyCheeto.Visible = true;
+                else if (i == 2)
+                    picEnemyDorittoMan.Visible = true;
+                else if (i == 3)
+                    picEnemyKnife.Visible = true;
+                else if (i == 4)
+                    picEnemyGrapeKoolAid.Visible = true;
+            }
+
+        }
     }
 }
