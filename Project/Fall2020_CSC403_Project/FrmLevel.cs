@@ -155,9 +155,23 @@ namespace Fall2020_CSC403_Project {
         picBossKoolAid.Hide();
         bossKoolaid = offScreen;
       }
-
-      // Update health
-      PlayerHealthBar();
+      else if (IsDead(Doritto))
+      {
+        picEnemyCheeto.Hide();
+        enemyCheeto = offScreen;
+      }
+      else if (IsDead(GrapeKoolAid))
+      {
+        picEnemyGrapeKoolAid.Hide();
+        GrapeKoolAid = offScreen;
+      }
+      else if (IsDead(Knife))
+      {
+        picEnemyKnife.Hide();
+        Knife = offScreen; 
+      }
+                        // Update health
+                        PlayerHealthBar();
     }
 
     private bool HitAWall(Character c) {
