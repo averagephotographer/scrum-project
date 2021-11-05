@@ -139,6 +139,18 @@
   <data name="final_battle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\final_battle.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+    <data name="dorito_man" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\dorito_man.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="grape_packet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\grape_packet.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Image1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Image1.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="knife" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\knife.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="GameOverPicture" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -743,10 +755,10 @@
         GyVJkiRpyNJGSZIkSRqytFGSJEmShixtlCRJkqQhSxslSZIkacjSRkmSJEkasrRRkiRJkoYsbZQkSZKk
         IUsbJUmSJGnI0kZJkiRJGrK0UZIkSZKGLG2UJEmSpCFLGyVJkiRpyNJGSZIkSRqytFGSJEmShixtlCRJ
         kqQhSxslSZIkacjSRkmSJEkaqH8b/f8D1c5++ojJKgAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="WinScreenPicture" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+  </value>
+</data>
+<data name="WinScreenPicture" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <value>
         iVBORw0KGgoAAAANSUhEUgAAAzIAAAHxCAYAAAC21okeAAAABGdBTUEAALGPC/xhBQAA/8dJREFUeF5M
         vXVcFV37xvs8j63YgdLdLYKFiAEoYndgdyc2BoqCGGCAigF2dyKChEh3qXSjAioNXuda4/s75/yxPrP3
         zOyZ2Svu+/rOWute/2T5r0b27e0oe+GKyreHUP5sLwrv70HRs8OoDDuD4qDTKA3yxe9PV1HxwRsFLw+g
@@ -20487,17 +20499,7 @@
         WfjqTIL/ksnw0GQ/URuKWBN5qS7UtYRl1I8etGk7UO2zDGc8tFDjr422NBfaK3u0ZjtQ2wodasE+YsP3
         OuIR9e6DAhe8qgrFW9q3piQbnKMtuMJzfXOvCa7FrkVDzGpcjV7N62yMiyGr0JzsgJrdxrgQSj2/ZwX1
         ij5BdgH+Hx/nFeUSNfrLAAAAAElFTkSuQmCC
-</value>
-  <data name="dorito_man" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\raw images\dorito_man.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="grape_packet" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\raw images\grape_packet.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Image1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Image1.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="knife" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\raw images\knife.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    </value>
   </data>
 </root>
+
