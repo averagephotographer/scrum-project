@@ -12,7 +12,6 @@ namespace Fall2020_CSC403_Project {
     private Player player;
     private LoseScreen loseScreen;
     private WinScreen winScreen;
-    private FrmLevel frmLevel;
     bool bossFightStarted = false;
 
     private FrmBattle() {
