@@ -47,7 +47,8 @@
   <ItemGroup>
     <Compile Include="BattleCharacter.cs" />
     <Compile Include="Character.cs" />
-    <Compile Include="Collider.cs" />
+    <Compile Include="Collider - Copy.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="NPC.cs" />

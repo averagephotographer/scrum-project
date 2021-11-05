@@ -13,9 +13,12 @@ namespace Fall2020_CSC403_Project {
     private Enemy Doritto; //new enemy called doritto
     private Enemy Knife; // new enemy called knife
     private Enemy GrapeKoolAid; // new enemy called GrapeKoolAid
+    private Item health0;
+    private Item health1;
+    private Item offScreenItem;
     private Character[] walls;
 
-    private Enemy offScreen; // whenever an enemy dies, set that enemy to this instance (a hidden pictureBox)
+    private Enemy offScreenEnemy; // whenever an enemy dies, set that enemy to this instance (a hidden pictureBox)
     private Player offScreenPlayer;
     
     private DateTime timeBegin;
@@ -42,11 +45,14 @@ namespace Fall2020_CSC403_Project {
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
       
-      offScreen = new Enemy(CreatePosition(picOffScreen), CreateCollider(picOffScreen, 0));
+      offScreenEnemy = new Enemy(CreatePosition(picOffScreen), CreateCollider(picOffScreen, 0));
       offScreenPlayer = new Player(CreatePosition(picOffScreenPlayer), CreateCollider(picOffScreenPlayer, 0));
       Doritto = new Enemy(CreatePosition(picEnemyDorittoMan), CreateCollider(picEnemyDorittoMan, PADDING));
       Knife = new Enemy(CreatePosition(picEnemyKnife), CreateCollider(picEnemyKnife, PADDING));
       GrapeKoolAid = new Enemy(CreatePosition(picEnemyGrapeKoolAid), CreateCollider(picEnemyGrapeKoolAid, PADDING));
+      health0 = new Item("Health", CreatePosition(picHeartContainer0), CreateCollider(picHeartContainer0, PADDING));
+      health1 = new Item("Health", CreatePosition(picHeartContainer1), CreateCollider(picHeartContainer1, PADDING));
+      offScreenItem = new Item("off_screen", CreatePosition(picOffScreen), CreateCollider(picOffScreen, 1));
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -54,7 +60,7 @@ namespace Fall2020_CSC403_Project {
       Doritto.Img = picEnemyDorittoMan.BackgroundImage;
       Knife.Img = picEnemyKnife.BackgroundImage;
       GrapeKoolAid.Img = picEnemyGrapeKoolAid.BackgroundImage;
-
+                
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
@@ -103,8 +109,48 @@ namespace Fall2020_CSC403_Project {
         player.MoveBack();
       }
 
-      // check collision with enemies
-      if (HitAChar(player, enemyPoisonPacket)) {
+      if (HitAnItem(player, health0)) {
+        player.InventoryAdd(health0);
+
+        // removes the image
+        picHeartContainer0.Hide();
+
+        // sets the item to an already made iteam
+        health0 = offScreenItem;
+
+        // show the item in inventory
+        // this is just a quick fix
+        // TODO: base this off of the character array
+
+        picHeartIndex0.Show(); // this image starts off hidden
+
+        // stackoverflow.com/a/20060498/16369768
+        picInventory0.Controls.Add(picHeartIndex0); // adds picture to picturebox
+        picHeartIndex0.Location = new Point(15, 15); // places the new picture in the frame
+      }
+
+            // idea: superclass item
+            // todo: this["health" + x]
+            // subclass heart
+      if (HitAnItem(player, health1)) {
+        player.InventoryAdd(health1);
+
+        // removes the image
+        picHeartContainer1.Hide();
+
+        // sets the item to an already made iteam
+        health1 = offScreenItem;
+
+        // show the item in inventory
+        // this is just a quick fix
+        // TODO: base this off of the character array
+        picHeartIndex1.Show();
+        picInventory1.Controls.Add(picHeartIndex1);
+        picHeartIndex1.Location = new Point(15, 15);
+      }
+
+            // check collision with enemies
+            if (HitAChar(player, enemyPoisonPacket)) {
         Fight(enemyPoisonPacket);
       }
       else if (HitAChar(player, enemyCheeto)) {
@@ -143,35 +189,36 @@ namespace Fall2020_CSC403_Project {
       if (IsDead(enemyPoisonPacket))
       {
         picEnemyPoisonPacket.Hide();
-        enemyPoisonPacket = offScreen;
+        enemyPoisonPacket = offScreenEnemy;
       }
       else if (IsDead(enemyCheeto))
       {
         picEnemyCheeto.Hide();
-        enemyCheeto = offScreen;
+        enemyCheeto = offScreenEnemy;
             }
       else if (IsDead(bossKoolaid))
       {
         picBossKoolAid.Hide();
-        bossKoolaid = offScreen;
+        bossKoolaid = offScreenEnemy;
       }
       else if (IsDead(Doritto))
       {
         picEnemyCheeto.Hide();
-        enemyCheeto = offScreen;
+        enemyCheeto = offScreenEnemy;
       }
       else if (IsDead(GrapeKoolAid))
       {
         picEnemyGrapeKoolAid.Hide();
-        GrapeKoolAid = offScreen;
+        GrapeKoolAid = offScreenEnemy;
       }
       else if (IsDead(Knife))
       {
         picEnemyKnife.Hide();
-        Knife = offScreen; 
+        Knife = offScreenEnemy; 
       }
-                        // Update health
-                        PlayerHealthBar();
+
+     // Update health
+     PlayerHealthBar();
     }
 
     private bool HitAWall(Character c) {
@@ -186,6 +233,9 @@ namespace Fall2020_CSC403_Project {
     }
 
     private bool HitAChar(Character you, Character other) {
+      return you.Collider.Intersects(other.Collider);
+    }
+    private bool HitAnItem(Character you, Item other) { 
       return you.Collider.Intersects(other.Collider);
     }
 
@@ -299,6 +349,16 @@ namespace Fall2020_CSC403_Project {
                 else if (i == 4)
                     picEnemyGrapeKoolAid.Visible = true;
             }
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
 
         }
     }
