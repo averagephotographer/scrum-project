@@ -22,5 +22,10 @@ namespace Fall2020_CSC403_Project
             frmLevel = FrmLevel.GetInstance();
             frmLevel.Show();
         }
+
+        private void modeSelection_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
