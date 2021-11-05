@@ -12,6 +12,9 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyCheeto;
     private Character[] walls;
 
+    private Enemy offScreen; // whenever an enemy dies, set that enemy to this instance (a hidden pictureBox)
+    private Player offScreenPlayer;
+    
     private DateTime timeBegin;
     private FrmBattle frmBattle;
 
@@ -27,6 +30,9 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      
+      offScreen = new Enemy(CreatePosition(picOffScreen), CreateCollider(picOffScreen, 0));
+      offScreenPlayer = new Player(CreatePosition(picOffScreenPlayer), CreateCollider(picOffScreenPlayer, 0));
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -44,6 +50,9 @@ namespace Fall2020_CSC403_Project {
 
       Game.player = player;
       timeBegin = DateTime.Now;
+
+      // Show health
+      PlayerHealthBar();
     }
 
     private Vector2 CreatePosition(PictureBox pic) {
@@ -87,6 +96,33 @@ namespace Fall2020_CSC403_Project {
 
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+
+      // Remove dead player's image
+      if (IsDead(player)){
+         picPlayer.Hide();
+         player = offScreenPlayer;
+         player.Die();
+      }
+
+      // Remove the dead enemies' images
+      if (IsDead(enemyPoisonPacket))
+      {
+        picEnemyPoisonPacket.Hide();
+        enemyPoisonPacket = offScreen;
+      }
+      else if (IsDead(enemyCheeto))
+      {
+        picEnemyCheeto.Hide();
+        enemyCheeto = offScreen;
+            }
+      else if (IsDead(bossKoolaid))
+      {
+        picBossKoolAid.Hide();
+        bossKoolaid = offScreen;
+      }
+
+      // Update health
+      PlayerHealthBar();
     }
 
     private bool HitAWall(Character c) {
@@ -142,5 +178,29 @@ namespace Fall2020_CSC403_Project {
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
-  }
+    
+    // Function for update the player's health bar on the main map
+    public void PlayerHealthBar()
+    {
+        float playerHealthPer = player.Health / (float)player.MaxHealth;
+        
+        const int MAX_HEALTHBAR_WIDTH = 226;
+        lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
+
+        lblPlayerHealthFull.Text = player.Health.ToString();
+    }
+
+    // check if enemy is dead
+    public bool IsDead(BattleCharacter character)
+    {
+        bool isDead = false;
+        if (character.Health <= 0)
+        {
+            isDead = true;
+        }
+        return isDead;
+    }
+
+        
+    }
 }
