@@ -31,7 +31,54 @@ namespace Fall2020_CSC403_Project {
     public FrmLevel() {
         InitializeComponent();
     }
-    private void FrmLevel_Load() {
+    private void setup() {
+      const int PADDING = 7;
+      const int NUM_WALLS = 13;
+
+      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+
+      RandomEnemies();
+
+      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
+      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
+      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      
+      offScreenEnemy = new Enemy(CreatePosition(picOffScreen), CreateCollider(picOffScreen, 0));
+      offScreenPlayer = new Player(CreatePosition(picOffScreenPlayer), CreateCollider(picOffScreenPlayer, 0));
+      Doritto = new Enemy(CreatePosition(picEnemyDorittoMan), CreateCollider(picEnemyDorittoMan, PADDING));
+      Knife = new Enemy(CreatePosition(picEnemyKnife), CreateCollider(picEnemyKnife, PADDING));
+      GrapeKoolAid = new Enemy(CreatePosition(picEnemyGrapeKoolAid), CreateCollider(picEnemyGrapeKoolAid, PADDING));
+      health0 = new Item("Health", CreatePosition(picHeartContainer0), CreateCollider(picHeartContainer0, PADDING));
+      health1 = new Item("Health", CreatePosition(picHeartContainer1), CreateCollider(picHeartContainer1, PADDING));
+      offScreenItem = new Item("off_screen", CreatePosition(picOffScreen), CreateCollider(picOffScreen, 1));
+
+      bossKoolaid.Img = picBossKoolAid.BackgroundImage;
+      enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
+      enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+      Doritto.Img = picEnemyDorittoMan.BackgroundImage;
+      Knife.Img = picEnemyKnife.BackgroundImage;
+      GrapeKoolAid.Img = picEnemyGrapeKoolAid.BackgroundImage;
+                
+      bossKoolaid.Color = Color.Red;
+      enemyPoisonPacket.Color = Color.Green;
+      enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+      Doritto.Color = Color.AliceBlue;
+      Knife.Color = Color.Brown;
+      GrapeKoolAid.Color = Color.Purple;
+
+      walls = new Character[NUM_WALLS];
+      for (int w = 0; w < NUM_WALLS; w++) {
+        PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
+        walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+      }
+
+      Game.player = player;
+      timeBegin = DateTime.Now;
+
+      // Show health
+      PlayerHealthBar();
+    }
+    private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
 
@@ -86,7 +133,7 @@ namespace Fall2020_CSC403_Project {
     public static FrmLevel GetInstance() {
       if (instance == null) {
         instance = new FrmLevel();
-        instance.FrmLevel_Load();
+        instance.setup();
       }
       return instance;
     }
@@ -344,5 +391,10 @@ namespace Fall2020_CSC403_Project {
 
     private void pictureBox1_Click(object sender, EventArgs e) {
     }
-  }
+
+        private void picEnemyCheeto_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

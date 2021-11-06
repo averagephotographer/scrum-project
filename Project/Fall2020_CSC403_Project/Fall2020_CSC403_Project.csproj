@@ -71,6 +71,7 @@
     </Compile>
     <Compile Include="WinScreen.Designer.cs">
       <DependentUpon>WinScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="modeSelection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +100,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoseScreen.resx">
       <DependentUpon>LoseScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="modeSelection.resx">
       <DependentUpon>modeSelection.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,6 +114,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinScreen.resx">
       <DependentUpon>WinScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="startMenu.resx">
       <DependentUpon>startMenu.cs</DependentUpon>
     </EmbeddedResource>
