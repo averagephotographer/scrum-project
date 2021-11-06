@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
+    public static FrmLevel instance = null;
     private Player player;
 
     private Enemy enemyPoisonPacket;
@@ -28,18 +29,15 @@ namespace Fall2020_CSC403_Project {
     System.Random random = new System.Random(); // calls the random class
 
     public FrmLevel() {
-      InitializeComponent();
+        InitializeComponent();
     }
-
-    private void FrmLevel_Load(object sender, EventArgs e) {
+    private void FrmLevel_Load() {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
 
-
       RandomEnemies();
-
 
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
@@ -80,14 +78,22 @@ namespace Fall2020_CSC403_Project {
       // Show health
       PlayerHealthBar();
     }
-
+    
     private Vector2 CreatePosition(PictureBox pic) {
       return new Vector2(pic.Location.X, pic.Location.Y);
     }
 
+    public static FrmLevel GetInstance() {
+      if (instance == null) {
+        instance = new FrmLevel();
+        instance.FrmLevel_Load();
+      }
+      return instance;
+    }
+
     private Collider CreateCollider(PictureBox pic, int padding) {
-      Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
-      return new Collider(rect);
+    Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
+    return new Collider(rect);
     }
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
@@ -129,9 +135,9 @@ namespace Fall2020_CSC403_Project {
         picHeartIndex0.Location = new Point(15, 15); // places the new picture in the frame
       }
 
-            // idea: superclass item
-            // todo: this["health" + x]
-            // subclass heart
+      // idea: superclass item
+      // todo: this["health" + x]
+      // subclass heart
       if (HitAnItem(player, health1)) {
         player.InventoryAdd(health1);
 
@@ -149,29 +155,27 @@ namespace Fall2020_CSC403_Project {
         picHeartIndex1.Location = new Point(15, 15);
       }
 
-            // check collision with enemies
-            if (HitAChar(player, enemyPoisonPacket)) {
+      // check collision with enemies
+      if (HitAChar(player, enemyPoisonPacket)) {
         Fight(enemyPoisonPacket);
       }
       else if (HitAChar(player, enemyCheeto)) {
         Fight(enemyCheeto);
       }
 
-      else if(HitAChar(player, Doritto))
-      {
+      else if (HitAChar(player, Doritto)) {
         Fight(Doritto);
       }
 
-      else if(HitAChar(player, Knife))
-      {
+      else if (HitAChar(player, Knife)) {
         Fight(Knife);
       }
 
-      else if(HitAChar(player, GrapeKoolAid))
-      {
+      else if (HitAChar(player, GrapeKoolAid)) {
         Fight(GrapeKoolAid);
       }
-      if (HitAChar(player, bossKoolaid)) {
+      
+      else if (HitAChar(player, bossKoolaid)) {
         Fight(bossKoolaid);
       }
 
@@ -179,40 +183,34 @@ namespace Fall2020_CSC403_Project {
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
 
       // Remove dead player's image
-      if (IsDead(player)){
+      if (IsDead(player)) {
          picPlayer.Hide();
          player = offScreenPlayer;
          player.Die();
       }
 
       // Remove the dead enemies' images
-      if (IsDead(enemyPoisonPacket))
-      {
+      if (IsDead(enemyPoisonPacket)) {
         picEnemyPoisonPacket.Hide();
         enemyPoisonPacket = offScreenEnemy;
       }
-      else if (IsDead(enemyCheeto))
-      {
+      else if (IsDead(enemyCheeto)) {
         picEnemyCheeto.Hide();
         enemyCheeto = offScreenEnemy;
             }
-      else if (IsDead(bossKoolaid))
-      {
+      else if (IsDead(bossKoolaid)) {
         picBossKoolAid.Hide();
         bossKoolaid = offScreenEnemy;
       }
-      else if (IsDead(Doritto))
-      {
+      else if (IsDead(Doritto)) {
         picEnemyCheeto.Hide();
         enemyCheeto = offScreenEnemy;
       }
-      else if (IsDead(GrapeKoolAid))
-      {
+      else if (IsDead(GrapeKoolAid)) {
         picEnemyGrapeKoolAid.Hide();
         GrapeKoolAid = offScreenEnemy;
       }
-      else if (IsDead(Knife))
-      {
+      else if (IsDead(Knife)) {
         picEnemyKnife.Hide();
         Knife = offScreenEnemy; 
       }
@@ -235,6 +233,7 @@ namespace Fall2020_CSC403_Project {
     private bool HitAChar(Character you, Character other) {
       return you.Collider.Intersects(other.Collider);
     }
+
     private bool HitAnItem(Character you, Item other) { 
       return you.Collider.Intersects(other.Collider);
     }
@@ -275,91 +274,75 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void lblInGameTime_Click(object sender, EventArgs e) {
-
     }
     
     // Function for update the player's health bar on the main map
-    public void PlayerHealthBar()
-    {
-        float playerHealthPer = player.Health / (float)player.MaxHealth;
-        
-        const int MAX_HEALTHBAR_WIDTH = 226;
-        lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
+    public void PlayerHealthBar() {
+      float playerHealthPer = player.Health / (float)player.MaxHealth;
+      
+      const int MAX_HEALTHBAR_WIDTH = 226;
+      lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
 
-        lblPlayerHealthFull.Text = player.Health.ToString();
+      lblPlayerHealthFull.Text = player.Health.ToString();
     }
 
     // check if enemy is dead
-    public bool IsDead(BattleCharacter character)
-    {
-        bool isDead = false;
-        if (character.Health <= 0)
-        {
-            isDead = true;
-        }
-        return isDead;
+    public bool IsDead(BattleCharacter character) {
+      bool isDead = false;
+      if (character.Health <= 0) {
+          isDead = true;
+      }
+      return isDead;
     }
 
         
 
-    private int [] Generate_RandomNumbers()
-    {
-            int max = 5;
-            int number1 = random.Next(max);
-            int number2 = random.Next(max);
-            int number3 = random.Next(max);
-            int number4 = random.Next(max);
+    private int [] Generate_RandomNumbers() {
+      int max = 5;
+      int number1 = random.Next(max);
+      int number2 = random.Next(max);
+      int number3 = random.Next(max);
+      int number4 = random.Next(max);
 
-            while((number1 == number2) || (number1 == number3) || (number1 == number4))
-            {
-                number1 = random.Next(max);
-            }
-            while((number2 == number3) || (number2 == number4))
-            {
-                number2 = random.Next(max);
-            }
-            while(number3 == number4)
-            {
-                number3 = random.Next(max);
-            }
-            int[] RandomNumbers = { number1, number2, number3, number4 };
-            return RandomNumbers;
+      while((number1 == number2) || (number1 == number3) || (number1 == number4)) {
+          number1 = random.Next(max);
+      }
+      while((number2 == number3) || (number2 == number4)) {
+          number2 = random.Next(max);
+      }
+      while(number3 == number4) {
+          number3 = random.Next(max);
+      }
+      int[] RandomNumbers = { number1, number2, number3, number4 };
+      return RandomNumbers;
     }
         
-    private void RandomEnemies()
+    private void RandomEnemies() {
+      int[] RandomPosition = Generate_RandomNumbers();
+      picEnemyPoisonPacket.Visible = false;
+      picEnemyCheeto.Visible = false;
+      picEnemyDorittoMan.Visible = false;
+      picEnemyKnife.Visible = false;
+      picEnemyGrapeKoolAid.Visible = false;
 
-    {
-            int[] RandomPosition = Generate_RandomNumbers();
-            picEnemyPoisonPacket.Visible = false;
-            picEnemyCheeto.Visible = false;
-            picEnemyDorittoMan.Visible = false;
-            picEnemyKnife.Visible = false;
-            picEnemyGrapeKoolAid.Visible = false;
-
-            foreach (int i in RandomPosition)
-            {
-                if (i == 0)
-                    picEnemyPoisonPacket.Visible = true;
-                else if (i == 1)
-                    picEnemyCheeto.Visible = true;
-                else if (i == 2)
-                    picEnemyDorittoMan.Visible = true;
-                else if (i == 3)
-                    picEnemyKnife.Visible = true;
-                else if (i == 4)
-                    picEnemyGrapeKoolAid.Visible = true;
-            }
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
+      foreach (int i in RandomPosition) {
+          if (i == 0)
+              picEnemyPoisonPacket.Visible = true;
+          else if (i == 1)
+              picEnemyCheeto.Visible = true;
+          else if (i == 2)
+              picEnemyDorittoMan.Visible = true;
+          else if (i == 3)
+              picEnemyKnife.Visible = true;
+          else if (i == 4)
+              picEnemyGrapeKoolAid.Visible = true;
+      }
     }
+
+    private void pictureBox2_Click(object sender, EventArgs e) {
+    }
+
+    private void pictureBox1_Click(object sender, EventArgs e) {
+    }
+  }
 }
