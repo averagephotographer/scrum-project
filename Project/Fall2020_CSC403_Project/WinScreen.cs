@@ -12,6 +12,8 @@ namespace Fall2020_CSC403_Project
 {
     public partial class WinScreen : Form
     {
+        public modeSelection modes;
+        public  FrmLevel frmLevel;
         public WinScreen()
         {
             this.ControlBox = false;
@@ -36,6 +38,11 @@ namespace Fall2020_CSC403_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Close();
+            modes = new modeSelection();
+            modes.Show();
+            frmLevel = new FrmLevel();
+            frmLevel.Close();
 
         }
 
@@ -46,7 +53,7 @@ namespace Fall2020_CSC403_Project
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            Application.Restart();
         }
     }
 }
