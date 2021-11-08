@@ -429,8 +429,8 @@ namespace Fall2020_CSC403_Project {
        System.Windows.Forms.Application.Exit();
     }
 
-    private void Exit_Paint(object sender, PaintEventArgs e) {
-       
+    private void panel1_Paint(object sender, PaintEventArgs e) {
+
     }
   }
 }
