@@ -68,7 +68,6 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void btnAttack_Click(object sender, EventArgs e) {
-      // changed the amount of dmg players takes for quick bug fix. used to be -2 // also changed how much player damages so that boss dies faster, usually -4
         player.OnAttack(-4);
         if (enemy.Health > 0) {
             enemy.OnAttack(-2);

@@ -40,10 +40,12 @@ namespace Fall2020_CSC403_Project
             // 
             this.Start.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.start_button;
             this.Start.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Start.Location = new System.Drawing.Point(49, 74);
+            this.Start.Location = new System.Drawing.Point(44, 59);
+            this.Start.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Start.Name = "Start";
-            this.Start.Size = new System.Drawing.Size(360, 170);
+            this.Start.Size = new System.Drawing.Size(320, 136);
             this.Start.TabIndex = 1;
+            this.Start.Paint += new System.Windows.Forms.PaintEventHandler(this.Start_Paint);
             this.Start.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Start_MouseClick);
             // 
             // Border
@@ -53,18 +55,20 @@ namespace Fall2020_CSC403_Project
             this.Border.Controls.Add(this.Start);
             this.Border.Controls.Add(this.Options);
             this.Border.Controls.Add(this.Exit);
-            this.Border.Location = new System.Drawing.Point(12, 12);
+            this.Border.Location = new System.Drawing.Point(11, 10);
+            this.Border.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Border.Name = "Border";
-            this.Border.Size = new System.Drawing.Size(446, 507);
+            this.Border.Size = new System.Drawing.Size(396, 406);
             this.Border.TabIndex = 3;
             // 
             // Options
             // 
             this.Options.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.options_button;
             this.Options.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Options.Location = new System.Drawing.Point(374, 428);
+            this.Options.Location = new System.Drawing.Point(332, 342);
+            this.Options.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Options.Name = "Options";
-            this.Options.Size = new System.Drawing.Size(35, 38);
+            this.Options.Size = new System.Drawing.Size(31, 30);
             this.Options.TabIndex = 2;
             this.Options.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Options_MouseClick);
             // 
@@ -72,19 +76,22 @@ namespace Fall2020_CSC403_Project
             // 
             this.Exit.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.img_487255;
             this.Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Exit.Location = new System.Drawing.Point(49, 272);
+            this.Exit.Location = new System.Drawing.Point(44, 218);
+            this.Exit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(360, 108);
+            this.Exit.Size = new System.Drawing.Size(320, 86);
             this.Exit.TabIndex = 0;
+            this.Exit.Paint += new System.Windows.Forms.PaintEventHandler(this.Exit_Paint);
             this.Exit.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Exit_MouseClick);
             // 
             // startMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(470, 531);
+            this.ClientSize = new System.Drawing.Size(418, 425);
             this.Controls.Add(this.Border);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "startMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "startMenu";

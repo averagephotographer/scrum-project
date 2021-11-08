@@ -28,12 +28,14 @@ namespace Fall2020_CSC403_Project {
     public Boolean invisibleEnemies = true; // This is what is used to turn on the ghost game mode
 
     System.Random random = new System.Random(); // calls the random class
+    
 
     public FrmLevel() {
         InitializeComponent();
+        this.ControlBox = false;
     }
 
-    public void Dispose()
+    public void  Dispose()
     {
         GC.SuppressFinalize(this);
     }
@@ -422,5 +424,13 @@ namespace Fall2020_CSC403_Project {
     private void picEnemyCheeto_Click(object sender, EventArgs e) {
 
     }
+
+    private void Exit_MouseClick(object sender, MouseEventArgs e) {
+       System.Windows.Forms.Application.Exit();
     }
+
+    private void Exit_Paint(object sender, PaintEventArgs e) {
+       
+    }
+  }
 }

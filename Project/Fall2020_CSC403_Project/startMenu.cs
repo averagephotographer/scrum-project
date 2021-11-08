@@ -46,6 +46,16 @@ namespace Fall2020_CSC403_Project
             options.Show();
             this.Hide();
         }
+
+        private void Start_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Exit_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
 
