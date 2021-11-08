@@ -34,6 +34,7 @@ namespace Fall2020_CSC403_Project
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -65,6 +66,7 @@ namespace Fall2020_CSC403_Project
             this.button2.TabIndex = 3;
             this.button2.Text = "Ghost";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button2_MouseClick);
             // 
             // label1
             // 
@@ -75,12 +77,23 @@ namespace Fall2020_CSC403_Project
             this.label1.TabIndex = 4;
             this.label1.Text = "Invisible Enemies!";
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.back_btn;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Location = new System.Drawing.Point(12, 456);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(120, 63);
+            this.panel1.TabIndex = 5;
+            this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
+            // 
             // modeSelection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(418, 425);
+            this.ClientSize = new System.Drawing.Size(470, 531);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -88,7 +101,6 @@ namespace Fall2020_CSC403_Project
             this.Name = "modeSelection";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "modeSelection";
-            this.Load += new System.EventHandler(this.modeSelection_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -99,5 +111,6 @@ namespace Fall2020_CSC403_Project
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

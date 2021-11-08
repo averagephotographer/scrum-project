@@ -19,13 +19,25 @@ namespace Fall2020_CSC403_Project
         }
         private void button1_MouseClick(object sender, MouseEventArgs e)
         {
+            this.Close();
             frmLevel = FrmLevel.GetInstance();
+            frmLevel.invisibleEnemies = false;
             frmLevel.Show();
         }
 
-        private void modeSelection_Load(object sender, EventArgs e)
+        private void button2_MouseClick(object sender, MouseEventArgs e)
         {
+            this.Close();
+            frmLevel = FrmLevel.GetInstance();
+            frmLevel.invisibleEnemies = true;
+            frmLevel.Show();
+        }
 
+        private void panel1_MouseClick(object sender, MouseEventArgs e)
+        {
+            startMenu start = new startMenu();
+            start.Show();
+            this.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)

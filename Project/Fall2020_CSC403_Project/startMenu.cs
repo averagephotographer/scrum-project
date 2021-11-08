@@ -19,6 +19,11 @@ namespace Fall2020_CSC403_Project
             InitializeComponent();
         }
 
+        public void Dispose()
+        {
+            GC.SuppressFinalize(this);
+        }
+
         private void startMenu_Load(object sender, EventArgs e)
         {
         }
@@ -32,12 +37,14 @@ namespace Fall2020_CSC403_Project
         {
             modeSelection mode = new modeSelection();
             mode.Show();
+            this.Hide();
         }
 
         private void Options_MouseClick(object sender, MouseEventArgs e)
         {
             Options options = new Options();
             options.Show();
+            this.Hide();
         }
     }
 }
