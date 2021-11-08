@@ -78,6 +78,8 @@ namespace Fall2020_CSC403_Project {
       // Show health
       PlayerHealthBar();
     }
+
+    // cheeky fix because FrmLevelDesigner else needs a version of this function that takes arguments
     private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
@@ -244,14 +246,14 @@ namespace Fall2020_CSC403_Project {
       else if (IsDead(enemyCheeto)) {
         picEnemyCheeto.Hide();
         enemyCheeto = offScreenEnemy;
-            }
+      }
       else if (IsDead(bossKoolaid)) {
         picBossKoolAid.Hide();
         bossKoolaid = offScreenEnemy;
       }
       else if (IsDead(Doritto)) {
-        picEnemyCheeto.Hide();
-        enemyCheeto = offScreenEnemy;
+        picEnemyDorittoMan.Hide();
+        Doritto = offScreenEnemy;
       }
       else if (IsDead(GrapeKoolAid)) {
         picEnemyGrapeKoolAid.Hide();
@@ -341,9 +343,7 @@ namespace Fall2020_CSC403_Project {
       }
       return isDead;
     }
-
         
-
     private int [] Generate_RandomNumbers() {
       int max = 5;
       int number1 = random.Next(max);
@@ -392,9 +392,8 @@ namespace Fall2020_CSC403_Project {
     private void pictureBox1_Click(object sender, EventArgs e) {
     }
 
-        private void picEnemyCheeto_Click(object sender, EventArgs e)
-        {
+    private void picEnemyCheeto_Click(object sender, EventArgs e) {
 
-        }
+    }
     }
 }
