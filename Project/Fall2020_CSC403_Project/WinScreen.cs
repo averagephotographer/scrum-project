@@ -13,7 +13,7 @@ namespace Fall2020_CSC403_Project
     public partial class WinScreen : Form
     {
         public modeSelection modes;
-        public  FrmLevel frmLevel;
+        public FrmLevel frmLevel;
         public WinScreen()
         {
             this.ControlBox = false;
@@ -34,16 +34,6 @@ namespace Fall2020_CSC403_Project
             lisimage.Add(Properties.Resources.WinScreenPicture);
             var indexbackimage = DateTime.Now.Second % lisimage.Count;
             this.BackgroundImage = lisimage[indexbackimage];
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            modes = new modeSelection();
-            modes.Show();
-            frmLevel = new FrmLevel();
-            frmLevel.Close();
-
         }
 
         private void button2_Click(object sender, EventArgs e)

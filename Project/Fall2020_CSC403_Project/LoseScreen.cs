@@ -35,14 +35,6 @@ namespace Fall2020_CSC403_Project
             this.BackgroundImage = lisimage[indexbackimage];
         }
 
-        // Play again from the beginning buttons
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            frmLevel = new FrmLevel();
-            frmLevel.Show();
-        }
-
         // exit button
         private void button2_Click(object sender, EventArgs e)
         {
