@@ -25,19 +25,35 @@ namespace Fall2020_CSC403_Project {
     private DateTime timeBegin;
     private FrmBattle frmBattle;
 
+    public Boolean invisibleEnemies = true; // This is what is used to turn on the ghost game mode
 
     System.Random random = new System.Random(); // calls the random class
 
     public FrmLevel() {
         InitializeComponent();
     }
-    private void setup() {
+
+    public void Dispose()
+    {
+        GC.SuppressFinalize(this);
+    }
+        private void setup() {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
 
-      RandomEnemies();
+      // Leave the enemies invisible if they select ghost game mode
+      if (invisibleEnemies == false) {
+        RandomEnemies();
+      }
+      else {
+        picEnemyPoisonPacket.Visible = false;
+        picEnemyCheeto.Visible = false;
+        picEnemyDorittoMan.Visible = false;
+        picEnemyKnife.Visible = false;
+        picEnemyGrapeKoolAid.Visible = false;
+      }
 
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
@@ -84,7 +100,18 @@ namespace Fall2020_CSC403_Project {
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
 
-      RandomEnemies();
+      if (invisibleEnemies == false)
+      {
+        RandomEnemies();
+      }
+      else
+      {
+        picEnemyPoisonPacket.Visible = false;
+        picEnemyCheeto.Visible = false;
+        picEnemyDorittoMan.Visible = false;
+        picEnemyKnife.Visible = false;
+        picEnemyGrapeKoolAid.Visible = false;
+      }
 
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));

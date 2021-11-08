@@ -18,7 +18,7 @@ namespace Fall2020_CSC403_Project
         {
             startMenu start = new startMenu();
             start.Show();
+            this.Hide();
         }
-
     }
 }
