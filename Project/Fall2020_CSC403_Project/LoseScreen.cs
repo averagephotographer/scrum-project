@@ -12,6 +12,7 @@ namespace Fall2020_CSC403_Project
 {
     public partial class LoseScreen : Form
     {
+        private FrmLevel frmLevel;
         public LoseScreen()
         {
             this.ControlBox = false;
@@ -34,12 +35,6 @@ namespace Fall2020_CSC403_Project
             this.BackgroundImage = lisimage[indexbackimage];
         }
 
-        // Play again from the beginning buttons
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Application.Restart();
-        }
-
         // exit button
         private void button2_Click(object sender, EventArgs e)
         {
@@ -48,7 +43,7 @@ namespace Fall2020_CSC403_Project
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            Application.Restart();
         }
     }
 }

@@ -12,6 +12,8 @@ namespace Fall2020_CSC403_Project
 {
     public partial class WinScreen : Form
     {
+        public modeSelection modes;
+        public FrmLevel frmLevel;
         public WinScreen()
         {
             this.ControlBox = false;
@@ -34,11 +36,6 @@ namespace Fall2020_CSC403_Project
             this.BackgroundImage = lisimage[indexbackimage];
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
@@ -46,7 +43,7 @@ namespace Fall2020_CSC403_Project
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            Application.Restart();
         }
     }
 }
