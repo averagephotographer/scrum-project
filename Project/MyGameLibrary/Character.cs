@@ -49,11 +49,8 @@ namespace Fall2020_CSC403_Project.code {
     public void InventoryAdd(Item item) {
       Inventory.Add(item);
     }
-    public Item InventoryRemove(int index) {
-      Item item = Inventory[index];
-      Console.WriteLine(item.Name);
-      Inventory.RemoveAt(index);
-      return item;
+    public void InventoryRemove(Item toRemove) {
+      Inventory.Remove(toRemove);
     }
     public int InventorySize() {
       return Inventory.Count;

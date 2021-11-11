@@ -35,11 +35,11 @@ namespace Fall2020_CSC403_Project {
         this.ControlBox = false;
     }
 
-    public void  Dispose()
+    public void Dispose()
     {
         GC.SuppressFinalize(this);
     }
-        private void setup() {
+    private void setup() {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
 
@@ -202,20 +202,13 @@ namespace Fall2020_CSC403_Project {
         // sets the item to an already made iteam
         health0 = offScreenItem;
 
-        // show the item in inventory
-        // this is just a quick fix
-        // TODO: base this off of the character array
-
-        picHeartIndex0.Show(); // this image starts off hidden
+        picHeartIndex0.Show(); // the inventory image starts off hidden
 
         // stackoverflow.com/a/20060498/16369768
         picInventory0.Controls.Add(picHeartIndex0); // adds picture to picturebox
         picHeartIndex0.Location = new Point(15, 15); // places the new picture in the frame
       }
 
-      // idea: superclass item
-      // todo: this["health" + x]
-      // subclass heart
       if (HitAnItem(player, health1)) {
         player.InventoryAdd(health1);
 
@@ -226,8 +219,6 @@ namespace Fall2020_CSC403_Project {
         health1 = offScreenItem;
 
         // show the item in inventory
-        // this is just a quick fix
-        // TODO: base this off of the character array
         picHeartIndex1.Show();
         picInventory1.Controls.Add(picHeartIndex1);
         picHeartIndex1.Location = new Point(15, 15);
@@ -344,7 +335,24 @@ namespace Fall2020_CSC403_Project {
         case Keys.Down:
           player.GoDown();
           break;
-
+        case Keys.D1:
+          if (picHeartIndex0.Visible == true) 
+          { 
+            player.AlterHealth(10);
+            PlayerHealthBar();
+            player.Inventory.Remove(health0);
+            picHeartIndex0.Hide();
+          }
+          break;
+        case Keys.D2:
+          if (picHeartIndex1.Visible == true)
+          {
+            player.AlterHealth(10);
+            PlayerHealthBar();
+            player.Inventory.Remove(health1);
+            picHeartIndex1.Hide();
+          }
+          break;
         default:
           player.ResetMoveSpeed();
           break;
