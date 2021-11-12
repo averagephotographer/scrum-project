@@ -12,27 +12,12 @@ namespace Fall2020_CSC403_Project
 {
     public partial class LoseScreen : Form
     {
-        private FrmLevel frmLevel;
         public LoseScreen()
         {
             this.ControlBox = false;
             this.BackgroundImage = Properties.Resources.GameOverPicture;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             InitializeComponent();
-            var timer = new Timer();
-            //change the background image every second  
-            timer.Interval = 1000;
-            timer.Tick += new EventHandler(Timer_Tick);
-            timer.Start();
-        }
-
-        void Timer_Tick(object sender, EventArgs e)
-        {
-            //add image in list from resource file.  
-            List<Bitmap> lisimage = new List<Bitmap>();
-            lisimage.Add(Properties.Resources.GameOverPicture);
-            var indexbackimage = DateTime.Now.Second % lisimage.Count;
-            this.BackgroundImage = lisimage[indexbackimage];
         }
 
         // exit button
@@ -41,6 +26,7 @@ namespace Fall2020_CSC403_Project
             System.Windows.Forms.Application.Exit();
         }
 
+        // main menu button
         private void button3_Click(object sender, EventArgs e)
         {
             Application.Restart();
