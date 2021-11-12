@@ -16,7 +16,7 @@ namespace Fall2020_CSC403_Project
         {
             this.ControlBox = false;
             this.BackgroundImage = Properties.Resources.GameOverPicture;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch; 
             InitializeComponent();
         }
 
