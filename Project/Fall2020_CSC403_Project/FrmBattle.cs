@@ -5,19 +5,19 @@ using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
 
-namespace Fall2020_CSC403_Project {
-  public partial class FrmBattle : Form {
-    public static FrmBattle instance = null;
-    private Enemy enemy;
-    private Player player;
-    private LoseScreen loseScreen;
-    private WinScreen winScreen;
-    bool bossFightStarted = false;
+namespace Fall2020_CSC403_Project
+{
+    public partial class FrmBattle : Form
+    {
+        public static FrmBattle instance = null;
+        private Enemy enemy;
+        private Player player;
 
-    private FrmBattle() {
-      InitializeComponent();
-      player = Game.player;
-    }
+        private FrmBattle()
+        {
+            InitializeComponent();
+            player = Game.player;
+        }
 
     public void Setup() {
       // update for this enemy
@@ -43,7 +43,6 @@ namespace Fall2020_CSC403_Project {
       simpleSound.Play();
 
       tmrFinalBattle.Enabled = true;
-      bossFightStarted = true;
     }
 
     public static FrmBattle GetInstance(Enemy enemy) {
@@ -68,33 +67,16 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void btnAttack_Click(object sender, EventArgs e) {
-        player.OnAttack(-4);
-        if (enemy.Health > 0) {
-            enemy.OnAttack(-2);
-        }
+      player.OnAttack(-4);
+      if (enemy.Health > 0) {
+        enemy.OnAttack(-2);
+      }
 
-        UpdateHealthBars();
-
-        if (bossFightStarted == true) {
-             if (enemy.Health <= 0) {
-                  instance = null;
-                  Close();
-                  winScreen = new WinScreen();
-                  winScreen.Show();
-             }
-        }
-
-        if (enemy.Health <= 0) {
-            instance = null;
-            Close();
-        }
-
-        else if (player.Health <= 0) {
-            instance = null;
-            Close();
-            loseScreen = new LoseScreen();
-            loseScreen.Show();
-        }
+      UpdateHealthBars();
+      if (player.Health <= 0 || enemy.Health <= 0) {
+        instance = null;
+        Close();
+      }
     }
 
     private void EnemyDamage(int amount) {
