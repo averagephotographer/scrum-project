@@ -94,7 +94,7 @@ namespace Fall2020_CSC403_Project {
             Close();
             loseScreen = new LoseScreen();
             loseScreen.Show();
-            }
+        }
     }
 
     private void EnemyDamage(int amount) {
